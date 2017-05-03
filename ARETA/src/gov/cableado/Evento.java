@@ -1,4 +1,4 @@
-package edu.cableado;
+package gov.cableado;
 
 import gov.logica.IPublicidad;
 

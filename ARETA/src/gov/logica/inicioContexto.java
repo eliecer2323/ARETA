@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionIdListener;
 import javax.servlet.http.HttpSessionListener;
 
-import edu.cableado.Evento;
+import gov.cableado.Evento;
 
 /**
  * Application Lifecycle Listener implementation class inicioContexto
@@ -34,12 +34,12 @@ public class inicioContexto implements ServletContextListener, ServletContextAtt
      * Default constructor. 
      */
     public inicioContexto() {
-    	Evento parqueadero = new Evento(()->{System.out.println("hola mundo");});
-		parqueadero.parquear();
+    	Evento evento = new Evento(()->{System.out.println("hola mundo");}); 
+		evento.programar();
 		/////////////////////
 		Cargador cargador = new Cargador();
 		System.out.println("path: "+new File(".").getAbsolutePath());    
-		cargador.cargar(new String[]{"C:/Users/JorgeEliecerSierra/workspace/ARETA/componentes/backOffice","C:/Users/JorgeEliecerSierra/workspace/ARETA/componentes/frontOffice"});
+		cargador.cargar(new String[]{"C:/Users/JorgeEliecerSierra/git/repARETA/ARETA/componentes/backOffice","C:/Users/JorgeEliecerSierra/git/repARETA/ARETA/componentes/frontOffice"});
 		/*try {
 			new Evento((IPublicidad)cargador.cargarComponente("gov.publicidad.Anuncio").newInstance()).programarEvento();;
 		} catch (InstantiationException e) {
