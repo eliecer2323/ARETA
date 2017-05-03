@@ -1,9 +1,13 @@
 package org.evento;
 
-public class Prueba {
-	
-	public void probar(){
-		System.out.println("estoy probando");
+import gov.logica.IProgramacion;
+
+public class Programador implements IProgramacion {
+
+	@Override
+	public void programarEvento() {
+		// TODO Auto-generated method stub
+		
 	}
-	
+
 }
