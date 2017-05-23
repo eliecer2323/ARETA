@@ -13,5 +13,10 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/postgresql-42.1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/evento.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/publicidad.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/usuario.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

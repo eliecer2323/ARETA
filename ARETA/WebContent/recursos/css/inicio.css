@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-color: #EAR2E0;
+}
+
+.clear {
+	clear:left;
+}
+
+.panelIzq {
+	margin:0px;
+	width:25%;
+	float:left;
+}
+
+.panelDer {
+	margin:0px;
+	width:25%;
+	float:left;
+}
+
+ul.menu {
+	background: #64B849;
+	border; 1px solid #7C7C7C;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden; 
+}
+
+ul.menu li {
+	float: left;
+	width: 20%;
+}
+
+ul.menu li a {
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #7C7C7C;
+	color: #FFFFFF;
+	display: block;
+	paddingg: .3em;
+	text-decoration: none;
+}
