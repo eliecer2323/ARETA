@@ -1,4 +1,4 @@
-package gov.servlet.usuario;
+package gov.servlet.evento;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,33 +12,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import gov.usuario.registro.Creador;
-import gov.usuario.registro.CreadorNoRegistrado;
+import org.evento.NuevoEvento.Nuevo;
 
-@WebServlet("/servletRegistro")
-public class ServletRegistro extends HttpServlet {
+@WebServlet("/servletNuevoEvento")
+public class ServletNuevoEvento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ServletRegistro() {
+    public ServletNuevoEvento() {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Connection conexion = (Connection) request.getServletContext().getAttribute("conexion");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("\nentra a servletNuevoEvento");
+    	
+    	Connection conexion = (Connection) request.getServletContext().getAttribute("conexion");
 		
 		Map<String, String> formulario = new HashMap<String, String>();
 		Enumeration<String> en = request.getParameterNames();
         while (en.hasMoreElements()) {
             String paramName = en.nextElement();
             formulario.put(paramName, request.getParameter(paramName));
+            System.out.println(paramName+": "+request.getParameter(paramName));
         }
         
-        Creador creador = new CreadorNoRegistrado();
-        if(creador.fabricar(conexion, formulario)==null){
-        	response.sendRedirect("modulos/usuario/fallo.jsp");
-        }else{
-        	response.sendRedirect("modulos/usuario/felicidades.jsp");
-        }
+        Nuevo evento = new Nuevo();
+        evento.inscribir(conexion, formulario);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

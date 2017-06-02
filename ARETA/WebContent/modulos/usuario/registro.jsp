@@ -7,25 +7,26 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Registro de Usuario</title>
     <meta id="viewport" name="viewport" content ="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link type="text/css" href="../../recursos/css/inicio.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../recursos/js/comun.js"></script>
     <script type="text/javascript">
-    function registrarse(formulario){
-    	document.getElementById("emailError").style.display = formulario.correoElectronicoPersonal.value!=formulario.confirmarCorreoElectronicoPersonal.value?"block":"none";
-    	document.getElementById("claveError").style.display = formulario.clave.value != formulario.confirmarClave.value?"block":"none";
-    	document.getElementById("claveError1").style.display = formulario.clave.value.length<6?"block":"none";
-    	if(formulario.correoElectronicoPersonal.value!=formulario.confirmarCorreoElectronicoPersonal.value || formulario.clave.value!=formulario.confirmarClave.value){
-    		return false;
-    	}else{
-    		formulario.sumbit();
-    		return true;
-    	}
-    }
-</script>
+	    function registrarse(formulario){
+	    	document.getElementById("emailError").style.display = formulario.correoElectronicoPersonal.value!=formulario.confirmarCorreoElectronicoPersonal.value?"block":"none";
+	    	document.getElementById("claveError").style.display = formulario.clave.value!=formulario.confirmarClave.value?"block":"none";
+	    	if(formulario.correoElectronicoPersonal.value!=formulario.confirmarCorreoElectronicoPersonal.value || formulario.clave.value!=formulario.confirmarClave.value){
+	    		return;
+	    	}else{
+	    		formulario.submit();
+	    		return;
+	    	}
+	    }
+	</script>
 </head>
-<body>
-	 <form method="post" action="servletRegistro" onsubmit="return registrarse(this);">
-		<div id="contenedor">
-			<div id="formulario" class="a">
-                <fieldset class="wpc93 columnas2">
+<body class="cuerpoSecundario">
+	<div class="contenedor">
+	 	<form method="post" action="../../servletRegistro">
+			<div id="formulario" class="formNuevo">
+                <fieldset class="fsNuevo">
                     <legend>Tus Datos Personales </legend>
                     <div>
                         <label>*Nombres:</label>
@@ -74,7 +75,7 @@
                         <div class="clear"></div>
                     </div>
 				   <div>
-				       <label>*Departamento</label>
+				       <label>*Departamento:</label>
 					   <select required id="idDepartamento" name="idDepartamento" onchange="traerResultados('idDepartamento', 'idMunicipio',this.form)" required >
 						    <option value="">Selecciona una opción.</option>
 						    <option value=25000>Cundinamarca</option>
@@ -111,10 +112,11 @@
 							<option value=99000>Vichada</option>
 							<option value=11000>Bogota D.C.</option>
 					   </select>
+					   <label class="altoCero">&nbsp;</label> 
 					   <div class="clear"></div>
 				   </div>
 				   <div>
-				       <label>*Ciudad</label> 
+				       <label>*Ciudad:</label> 
 					   <select required id="idMunicipio" name="idMunicipio" required  >
 					       <option value="">Selecciona una opción.</option>
 					       <option value=11001>Bogotá D.C</option>
@@ -132,7 +134,7 @@
 					</script>
                 </fieldset>
 					
-                <fieldset class="wpc93 columnas2">
+                <fieldset class="fsNuevo">
                     <legend>Datos de tu Cuenta</legend>
                     <div oncopy="return false;">
                         <label>*Tu Correo Electrónico:</label>
@@ -157,20 +159,20 @@
                     </div>
                     <div onpaste="return false;">
 						<label>*Confirmar Contraseña:</label>
-                       	<input type="password" id="confirmarClave" name="confirmarClave" required/>                      
+                       	<input type="password" id="confirmarClave" name="confirmarClave" required minimum="6"/>                      
                         <label class="altoCero">&nbsp;</label> 
                         <div class="clear"></div>
                     </div>
                 </fieldset>
                     <div class="clear"></div>              
-                    <div>
-                    	<input type="submit" class="boton" value="Registrarme" />
-                        <input type="button" class="boton"  value="Cancelar" onclick="window.close()"/>
+                    <div class="">
+                    	<input type="button" class="boton" value="REGISTRARME" onclick="registrarse(this.form)"/>
+                        <input type="button" class="boton" value="CANCELAR" onclick="window.close()"/>
                     </div>
                     <div class="clear"></div>
                 </div>
-		</div>
-	</form>
+    	</form>
+	</div>
 </body>
 </html>
 

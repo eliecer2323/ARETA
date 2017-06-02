@@ -2,6 +2,7 @@ package gov.servlet.usuario;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,11 +32,12 @@ public class ServletInicioSesion extends HttpServlet {
 		Connection conexion = (Connection) request.getServletContext().getAttribute("conexion");
 		
 		InicioSesion inicio = new InicioSesion();
-		if(inicio.iniciarSesion(conexion, correo, clave)){
-			request.setAttribute("correo", correo);
+		Map<String, String> usuario = inicio.iniciarSesion(conexion, correo, clave);
+		
+		if(usuario!=null){
+			request.getSession().setAttribute("usuario", usuario);
 		} 
-		request.getRequestDispatcher("index.jsp").forward(request, response);
-		//response.sendRedirect("index.jsp");
+		response.sendRedirect("index.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

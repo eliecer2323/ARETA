@@ -7,6 +7,8 @@
 <title>Consultar afectado</title>
 </head>
 <body>
-consultando afectados
+	<div class="contenedor">
+		consultando afectados
+	</div>
 </body>
 </html>

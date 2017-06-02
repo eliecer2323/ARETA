@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>ARETA</display-name>
   <listener>
@@ -9,18 +9,26 @@
     <servlet-name>servletInicioSesion</servlet-name>
     <servlet-class>gov.servlet.usuario.ServletInicioSesion</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>servletInicioSesion</servlet-name>
-    <url-pattern>/servlet/servletInicioSesion</url-pattern>
-  </servlet-mapping>
-  
   <servlet>
     <servlet-name>servletRegistro</servlet-name>
     <servlet-class>gov.servlet.usuario.ServletRegistro</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>servletCerrarSesion</servlet-name>
+    <servlet-class>gov.servlet.usuario.ServletCerrarSesion</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>servletCerrarSesion</servlet-name>
+    <url-pattern>/servletCerrarSesion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servletInicioSesion</servlet-name>
+    <url-pattern>/servletInicioSesion</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>servletRegistro</servlet-name>
-    <url-pattern>/servlet/servletRegistro</url-pattern>
+    <url-pattern>/servletRegistro</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>
